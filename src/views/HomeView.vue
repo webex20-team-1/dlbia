@@ -1,18 +1,20 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div class="home__wrapper">
+    <post-app />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue"
-
+import PostApp from "@/components/Modules/PostApp.vue"
 export default {
-  name: "HomeView",
-  components: {
-    HelloWorld,
-  },
+  components: { PostApp },
 }
 </script>
+
+<style scoped>
+.home__wrapper {
+  margin: 0 auto;
+  max-width: 600px;
+  background-color: #ccc;
+}
+</style>
