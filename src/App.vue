@@ -2,7 +2,7 @@
   <Header />
   <nav>
     <router-link to="/">Home</router-link> |
-    <router-link to="/post-lists">みんなの投稿</router-link> |
+    <router-link to="/post-list">みんなの投稿</router-link> |
     <router-link to="/mypage">Mypage</router-link>
   </nav>
   <router-view />
