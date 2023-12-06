@@ -14,21 +14,44 @@
             投稿
           </button>
         </div>
+        <!--  投稿表示 -->
+        <div>
+          <p v-for="post in posts" :key="post.id">
+            {{ post.text }}
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { collection, addDoc } from "firebase/firestore"
+// firebase.js で db として export したものを import
+import { db } from "./firebase"
 export default {
   data() {
     return {
-      text: "",
+      posts: [
+        // {
+        //   id: "0GwoGZuhTNhqHQDBeiVW",
+        //   text: "こんにちは、ツイートの本文です。"
+        // }
+      ],
     }
   },
   methods: {
     postTweet() {
-      alert("投稿機能の完成をお楽しみに！")
+      /* 変更点１ */
+      const post = {
+        text: this.text,
+      }
+      addDoc(collection(db, "posts"), post).then((ref) => {
+        this.posts.push({
+          id: ref.id,
+          ...post,
+        })
+      })
     },
   },
 }
