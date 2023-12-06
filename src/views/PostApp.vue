@@ -28,7 +28,7 @@
 <script>
 import { collection, addDoc } from "firebase/firestore"
 // firebase.js で db として export したものを import
-import { db } from "./firebase"
+import { db } from "@/firebase.js"
 export default {
   data() {
     return {
