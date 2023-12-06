@@ -3,7 +3,7 @@
     <div>
       Made by DLBIA
       <span class="names"
-        >Member : Yusuke Miyamura, Ryo Nishioka and Kanami Takashima</span
+        >Menber : Yusuke Miyamura, Ryo Nishioka and Kanami Takashima</span
       >.
     </div>
   </footer>
