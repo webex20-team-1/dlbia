@@ -14,12 +14,6 @@
             投稿
           </button>
         </div>
-        <!--  投稿表示 -->
-        <div>
-          <p v-for="post in posts" :key="post.id">
-            {{ post.text }}
-          </p>
-        </div>
       </div>
     </div>
   </div>
@@ -43,14 +37,8 @@ export default {
   methods: {
     postTweet() {
       /* 変更点１ */
-      const post = {
+      addDoc(collection(db, "posts"), {
         text: this.text,
-      }
-      addDoc(collection(db, "posts"), post).then((ref) => {
-        this.posts.push({
-          id: ref.id,
-          ...post,
-        })
       })
     },
   },
