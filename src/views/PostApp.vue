@@ -7,8 +7,9 @@
         <textarea
           class="form__textarea"
           v-model="text"
-          placeholder="いまどうしてる？"
+          placeholder="アプリ名"
         />
+        <textarea class="form__textarea" v-model="url" placeholder="url" />
         <div class="form__buttons">
           <button v-on:click="postTweet" class="form__submit-button">
             投稿
@@ -39,6 +40,7 @@ export default {
       /* 変更点１ */
       addDoc(collection(db, "posts"), {
         text: this.text,
+        url: this.url,
       })
     },
   },
