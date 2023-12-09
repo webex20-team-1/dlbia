@@ -10,6 +10,11 @@
           placeholder="アプリ名"
         />
         <textarea class="form__textarea" v-model="url" placeholder="url" />
+        <textarea
+          class="form__textarea"
+          v-model="explanation"
+          placeholder="説明"
+        />
         <div class="form__buttons">
           <button v-on:click="postTweet" class="form__submit-button">
             投稿
@@ -41,6 +46,7 @@ export default {
       addDoc(collection(db, "posts"), {
         text: this.text,
         url: this.url,
+        explanation: this.explanation,
       })
     },
   },
@@ -53,17 +59,22 @@ export default {
   max-width: 600px;
   background-color: #ccc;
 }
+
 .form__wrapper {
   padding: 1rem;
 }
 .form__textarea {
-  width: 100%;
-  height: calc(1.3rem * 3 + 0.5rem * 2);
-  padding: 0.5rem;
+  width: 90%;
+  height: 30px;
+  padding: 10px;
   line-height: 1.3rem;
-  border-radius: 5px;
+  border-radius: 1px;
   border: none;
   resize: none;
+  border: 1px solid #ccc;
+}
+textarea:invalid {
+  background: #ef2906;
 }
 .form__textarea:focus {
   outline: none;
