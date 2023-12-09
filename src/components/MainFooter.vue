@@ -13,6 +13,4 @@
 .footer {
   text-align: center;
 }
-.names {
-}
 </style>

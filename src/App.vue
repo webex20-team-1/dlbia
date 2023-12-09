@@ -1,17 +1,21 @@
 <template>
-  <Header />
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/post-list">みんなの投稿</router-link> |
-    <router-link to="/mypage">Mypage</router-link>
-  </nav>
-  <router-view />
-  <Footer />
-</template>
+  <Header></Header>
+  <div>
+    <div>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/post-page">投稿する</router-link> |
+      <router-link to="/post-list">みんなの投稿</router-link> |
+      <router-link to="/mypage">Mypage</router-link>
+    </div>
+    <router-view />
+  </div>
 
+  <Footer></Footer>
+</template>
 <script>
 import Header from "@/components/MainHeader.vue"
 import Footer from "@/components/MainFooter.vue"
+
 export default {
   components: {
     Header,
