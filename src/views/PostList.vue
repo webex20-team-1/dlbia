@@ -3,10 +3,15 @@
     <h1>みんなの投稿</h1>
   </div>
   <!--  投稿表示 -->
-  <div>
-    <div v-for="post in posts" :key="post.id">
-      {{ post.text }}
-      {{ post.url }}
+  <div class="post-container">
+    <div class="post-contents" v-for="post in posts" :key="post.id">
+      <div class="post-contents-name">Name</div>
+      <div>{{ post.text }}</div>
+      <div class="post-contents-name">URL</div>
+      <div>{{ post.url }}</div>
+      <router-link v-bind:to="{ name: 'Rate', params: { id: post.id } }"
+        >Read more</router-link
+      >
     </div>
   </div>
 </template>
@@ -38,3 +43,17 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.post-container {
+}
+.post-contents {
+  border: 3px solid lightgrey;
+  text-align: center;
+  margin: 2rem;
+  padding: 1em;
+}
+.post-contents-name {
+  text-align: left;
+}
+</style>
