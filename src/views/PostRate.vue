@@ -7,11 +7,8 @@
       <!-- アプリの詳細 -->
     </div>
     このアプリに対するフィードバックを送ってください！
-    <div class="rate-container">
+    <div>
       <!-- 評価 -->
-      <div v-for="feedback in feedbacks" v-bind:key="feedback.id">
-        {{ feedback.text }}
-      </div>
       <textarea
         class="rate-textbox"
         v-model="fbtext"
@@ -19,16 +16,18 @@
       ></textarea>
       <button v-on:click="postFeedback">投稿</button>
     </div>
+    <div class="rate-container">
+      <div v-for="feedback in feedbacks" v-bind:key="feedback.id">
+        {{ feedback.text }}
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import { doc, getDoc } from "firebase/firestore"
+import { collection, doc, getDoc, getDocs } from "firebase/firestore"
 import { addDoc } from "firebase/firestore"
 import { db } from "@/firebase.js"
-
-// feedbackRef は特定の投稿に関連付けられた "feedbacks" サブコレクションを指す
-const feedbackRef = doc(db, "posts", "postId", "feedbacks")
 
 export default {
   data() {
@@ -51,19 +50,35 @@ export default {
   async created() {
     // $route.params.idから投稿IDを定義して宣言
     const postId = this.$route.params.id
+
     // Firestoreから詳細データを取得
     const docRef = doc(db, "posts", postId) // idまでの道
     const docSnap = await getDoc(docRef) // awaitは処理を待ってくれる
-    // getDoc 関数を使用してFirestoreから取得したドキュメントのスナップショット（snapshot）
+    // docSnapはgetDoc関数を使用してFirestoreから取得したドキュメントのスナップショット
     if (docSnap.exists()) {
       // this.postsにFirebaseのドキュメントをid指定して入れている
       this.posts = { id: postId, ...docSnap.data() }
     } else {
       console.log("No such document!")
     }
+
+    // リプライ一覧を取得
+    // feedbackRef は特定の投稿に関連付けられた "feedbacks" サブコレクションを指す
+    const feedbacksRef = collection(docRef, "feedbacks")
+    const feedbacksSnap = await getDocs(feedbacksRef)
+    this.feedbacks = feedbacksSnap.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }))
   },
   methods: {
     postFeedback() {
+      // feedbackRefがidで指定したpostsの投稿の中にfeedbacksというコレクションを指すようにする
+      const feedbackRef = collection(
+        doc(db, "posts", this.$route.params.id),
+        "feedbacks"
+      )
+
       addDoc(feedbackRef, {
         text: this.fbtext,
       })
@@ -71,3 +86,18 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.app-container {
+  border: 3px solid lightgrey;
+  text-align: center;
+  margin: 2rem;
+  padding: 1em;
+}
+.rate-container {
+  border: 3px solid lightgrey;
+  text-align: center;
+  margin: 2rem;
+  padding: 1em;
+}
+</style>
