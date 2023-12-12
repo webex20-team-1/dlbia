@@ -9,9 +9,12 @@
     このアプリに対するフィードバックを送ってください！
     <div class="rate-container">
       <!-- 評価 -->
+      <div v-for="feedback in feedbacks" v-bind:key="feedback.id">
+        {{ feedback.text }}
+      </div>
       <textarea
         class="rate-textbox"
-        v-model="text"
+        v-model="fbtext"
         placeholder="テキストによる評価"
       ></textarea>
       <button v-on:click="postFeedback">投稿</button>
@@ -21,7 +24,11 @@
 
 <script>
 import { doc, getDoc } from "firebase/firestore"
+import { addDoc } from "firebase/firestore"
 import { db } from "@/firebase.js"
+
+// feedbackRef は特定の投稿に関連付けられた "feedbacks" サブコレクションを指す
+const feedbackRef = doc(db, "posts", "postId", "feedbacks")
 
 export default {
   data() {
@@ -32,7 +39,13 @@ export default {
         //   text: "こんにちは、ツイートの本文です。"
         // }
       },
-      text: "",
+      feedbacks: [
+        // {
+        //   id: "0GwoGZuhTNhqHQDBeiVW",
+        //   text: "こんにちは、ツイートの本文です。"
+        //   text,time,useridなど？
+        // }
+      ],
     }
   },
   async created() {
@@ -51,7 +64,9 @@ export default {
   },
   methods: {
     postFeedback() {
-      // フィードバックを投稿する処理を追加
+      addDoc(feedbackRef, {
+        text: this.fbtext,
+      })
     },
   },
 }
