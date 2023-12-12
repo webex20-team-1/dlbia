@@ -12,5 +12,6 @@
 <style scoped>
 .header {
   display: flex;
+  margin: 0 auto;
 }
 </style>
