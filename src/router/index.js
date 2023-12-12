@@ -3,6 +3,7 @@ import HomeView from "../views/HomeView.vue"
 import PostApp from "../views/PostApp.vue"
 import PostList from "../views/PostList.vue"
 import MyPage from "../views/MyPage.vue"
+import PostRate from "../views/PostRate.vue"
 
 const routes = [
   {
@@ -18,13 +19,18 @@ const routes = [
   },
   {
     path: "/post-list",
-    name: "postlist",
+    name: "PostList",
     component: PostList,
   },
   {
     path: "/mypage",
-    name: "mypage",
+    name: "MyPage",
     component: MyPage,
+  },
+  {
+    path: "/post/:id",
+    name: "Rate",
+    component: PostRate,
   },
 ]
 
