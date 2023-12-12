@@ -2,8 +2,8 @@
   <div>
     <h1>みんなの投稿</h1>
   </div>
-  <!--  投稿表示 -->
   <div class="post-container">
+    <!--  投稿表示 -->
     <div class="post-contents" v-for="post in posts" :key="post.id">
       <div class="post-contents-name">Name</div>
       <div>{{ post.text }}</div>
@@ -45,8 +45,6 @@ export default {
 </script>
 
 <style scoped>
-.post-container {
-}
 .post-contents {
   border: 3px solid lightgrey;
   text-align: center;
