@@ -7,6 +7,7 @@
     <div v-for="post in posts" :key="post.id">
       {{ post.text }}
       {{ post.url }}
+      {{ post.explanation }}
     </div>
   </div>
 </template>
