@@ -3,22 +3,18 @@
     <h1>投稿</h1>
 
     <div class="home__wrapper">
-      <div class="form__wrapper">
-        <textarea
-          class="form__textarea"
-          v-model="text"
-          placeholder="アプリ名"
-        />
-        <textarea class="form__textarea" v-model="url" placeholder="url" />
-        <div class="form__buttons">
-          <button
-            v-on:click="postTweet, showModal()"
-            class="form__submit-button"
-          >
-            投稿
-          </button>
-          <modal :message="message" v-show="modal"></modal>
-        </div>
+      <textarea class="form__textarea1" v-model="text" placeholder="アプリ名" />
+      <textarea class="form__textarea2" v-model="url" placeholder="url" />
+      <textarea
+        class="form__textarea3"
+        v-model="explanation"
+        placeholder="説明"
+      />
+      <div class="form__buttons">
+        <button v-on:click="postTweet, showModal()" class="form__submit-button">
+          投稿
+        </button>
+        <modal :message="message" v-show="modal"></modal>
       </div>
     </div>
   </div>
@@ -42,7 +38,6 @@ export default {
         //   text: "こんにちは、ツイートの本文です。"
         // }
       ],
-
       message: "よろしいですか？",
       modal: false,
     }
@@ -60,6 +55,7 @@ export default {
       addDoc(collection(db, "posts"), {
         text: this.text,
         url: this.url,
+        explanation: this.explanation,
       })
     },
   },
@@ -70,19 +66,41 @@ export default {
 .home__wrapper {
   margin: 0 auto;
   max-width: 600px;
-  background-color: #ccc;
+  line-height: 50px;
 }
-.form__wrapper {
-  padding: 1rem;
-}
-.form__textarea {
-  width: 100%;
-  height: calc(1.3rem * 3 + 0.5rem * 2);
-  padding: 0.5rem;
+
+.form__textarea1 {
+  width: 90%;
+  height: 20px;
+  padding: 10px;
   line-height: 1.3rem;
-  border-radius: 5px;
+  border-radius: 1px;
   border: none;
   resize: none;
+  border: 3px solid #06c4ef;
+}
+.form__textarea2 {
+  width: 90%;
+  height: 20px;
+  padding: 10px;
+  line-height: 1.3rem;
+  border-radius: 1px;
+  border: none;
+  resize: none;
+  border: 3px solid #06c4ef;
+}
+.form__textarea3 {
+  width: 90%;
+  height: 60px;
+  padding: 10px;
+  line-height: 1rem;
+  border-radius: 1px;
+  border: none;
+  resize: none;
+  border: 3px solid #06c4ef;
+}
+textarea:invalid {
+  background: #ef2906;
 }
 .form__textarea:focus {
   outline: none;
@@ -90,5 +108,7 @@ export default {
 .form__buttons {
   display: flex;
   justify-content: flex-end;
+  position: relative;
+  right: 270px;
 }
 </style>

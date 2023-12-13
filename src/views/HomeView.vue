@@ -1,18 +1,24 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <h3 class="post-sample">アプリを投稿して評価して貰おう！！</h3>
   </div>
+  <div>
+    <img
+      class="postsample_img"
+      src="../assets/postexample.png"
+      alt="カテゴリーの紹介写真"
+    />
+  </div>
+  <h3 class="post-sample">
+    プログラマーのアプリを見て参考にしたり、評価しよう！！
+  </h3>
 </template>
-
-<script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue"
-
-export default {
-  name: "HomeView",
-  components: {
-    HelloWorld,
-  },
+<style scoped>
+.postsample_img {
+  width: 50%;
+  border: 3px solid #47474b;
 }
-</script>
+.post-sample {
+  color: #0e0e0f;
+}
+</style>
