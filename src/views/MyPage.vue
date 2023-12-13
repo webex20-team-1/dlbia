@@ -16,7 +16,7 @@ export default {
       // 以下の Firebase に関するコードは、公式ドキュメントをコピペしただけ
       const auth = getAuth()
       const provider = new GoogleAuthProvider()
-      signInWithRedirect(auth, provider)
+      await signInWithRedirect(auth, provider)
       this.$router.push("/login")
     },
   },
