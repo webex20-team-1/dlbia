@@ -1,11 +1,17 @@
 <template>
   <div>
     <h1>評価とコメント</h1>
+
+    <h2>App Detail</h2>
     <div class="app-container">
-      <div>アプリの詳細：{{ posts.text }}</div>
-      <div>アプリのURL：{{ posts.url }}</div>
       <!-- アプリの詳細 -->
+      <p class="app-title">アプリ説明</p>
+      <div>{{ posts.text }}</div>
+      <p class="app-title">URL</p>
+      <div>{{ posts.url }}</div>
     </div>
+
+    <h2>Your Feedback</h2>
     このアプリに対するフィードバックを送ってください！
     <div>
       <!-- 評価 -->
@@ -16,7 +22,10 @@
       ></textarea>
       <button v-on:click="postFeedback">投稿</button>
     </div>
+
+    <h2>Feedbacks List</h2>
     <div class="rate-container">
+      <!-- 評価一覧 -->
       <div v-for="feedback in feedbacks" v-bind:key="feedback.id">
         {{ feedback.text }}
       </div>
@@ -90,14 +99,21 @@ export default {
 <style scoped>
 .app-container {
   border: 3px solid lightgrey;
-  text-align: center;
+  text-align: left;
   margin: 2rem;
   padding: 1em;
+  padding-left: 5rem;
+  padding-right: 5rem;
 }
 .rate-container {
   border: 3px solid lightgrey;
-  text-align: center;
+  text-align: left;
   margin: 2rem;
   padding: 1em;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+.app-title {
+  font-weight: bold;
 }
 </style>
