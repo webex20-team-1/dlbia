@@ -12,11 +12,12 @@ import { getAuth, signInWithRedirect, GoogleAuthProvider } from "firebase/auth"
 
 export default {
   methods: {
-    signIn: function () {
+    signIn: async function () {
       // 以下の Firebase に関するコードは、公式ドキュメントをコピペしただけ
       const auth = getAuth()
       const provider = new GoogleAuthProvider()
       signInWithRedirect(auth, provider)
+      this.$router.push("/login")
     },
   },
 }

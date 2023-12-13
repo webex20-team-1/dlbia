@@ -3,6 +3,8 @@ import HomeView from "../views/HomeView.vue"
 import PostApp from "../views/PostApp.vue"
 import PostList from "../views/PostList.vue"
 import MyPage from "../views/MyPage.vue"
+import MyApp from "../views/MyApp.vue"
+import LogIn from "../views/LogIn.vue"
 
 const routes = [
   {
@@ -25,6 +27,16 @@ const routes = [
     path: "/mypage",
     name: "mypage",
     component: MyPage,
+  },
+  {
+    path: "/myapp",
+    name: "myapp",
+    component: MyApp,
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: LogIn,
   },
 ]
 
