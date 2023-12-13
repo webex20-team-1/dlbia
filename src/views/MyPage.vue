@@ -9,7 +9,6 @@
 
 <script>
 import { getAuth, signInWithRedirect, GoogleAuthProvider } from "firebase/auth"
-
 export default {
   methods: {
     signIn: async function () {

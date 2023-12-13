@@ -33,6 +33,9 @@ export default {
         //   text: "こんにちは、ツイートの本文です。"
         // }
       ],
+      user: [
+        // user id
+      ],
     }
   },
   methods: {
