@@ -30,7 +30,7 @@ export default {
         // 未ログイン時
         if (!user) {
           // topに飛ばしてログインさせる
-          this.$router.push("/mypage")
+          this.$router.push("/signin")
         }
         // ログイン時
         else {

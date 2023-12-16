@@ -8,16 +8,28 @@
 </template>
 
 <script>
-import { getAuth, signInWithRedirect, GoogleAuthProvider } from "firebase/auth"
+import {
+  getAuth,
+  signInWithRedirect,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+} from "firebase/auth"
 export default {
   methods: {
     signIn: async function () {
-      // 以下の Firebase に関するコードは、公式ドキュメントをコピペしただけ
       const auth = getAuth()
       const provider = new GoogleAuthProvider()
       await signInWithRedirect(auth, provider)
-      this.$router.push("/login")
     },
+  },
+  // 以下を追加
+  created: function () {
+    const auth = getAuth()
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        this.$router.push("/nickname")
+      }
+    })
   },
 }
 </script>
