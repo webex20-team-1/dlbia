@@ -23,7 +23,6 @@ import { collection, addDoc } from "firebase/firestore"
 // firebase.js で db として export したものを import
 import { db } from "@/firebase.js"
 import { getAuth, onAuthStateChanged } from "firebase/auth"
-import firebase from "firebase/app"
 
 export default {
   data() {
@@ -34,12 +33,14 @@ export default {
         //   text: "こんにちは、ツイートの本文です。"
         // }
       ],
+      text: "",
+      url: "",
     }
   },
   methods: {
     postApp() {
       // Firebaseのユーザー状態の変更を監視
-      const auth = getAuth(firebase) // getAuthメソッドを使用してauthモジュールを取得
+      const auth = getAuth() // getAuthメソッドを使用してauthモジュールを取得
 
       onAuthStateChanged(auth, (user) => {
         if (user) {

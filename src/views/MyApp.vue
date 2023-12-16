@@ -18,7 +18,8 @@
 
 <script>
 import { collection, getDocs, where, query } from "firebase/firestore"
-import { db, auth } from "@/firebase.js"
+import { db } from "@/firebase.js"
+import { getAuth } from "firebase/auth"
 
 export default {
   data() {
@@ -27,6 +28,7 @@ export default {
     }
   },
   created() {
+    const auth = getAuth()
     const user = auth.currentUser
 
     if (user) {
