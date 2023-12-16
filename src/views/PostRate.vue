@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="postrate">
     <h1>評価とコメント</h1>
     <div class="app-container">
       <div>アプリの詳細：{{ posts.text }}</div>
@@ -56,3 +56,9 @@ export default {
   },
 }
 </script>
+
+<style>
+.postrate {
+  margin: 100px;
+}
+</style>

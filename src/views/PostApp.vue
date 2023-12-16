@@ -14,7 +14,6 @@
         <button v-on:click="postTweet, showModal()" class="form__submit-button">
           投稿
         </button>
-        <modal :message="message" v-show="modal"></modal>
       </div>
     </div>
   </div>
@@ -24,12 +23,10 @@
 import { collection, addDoc } from "firebase/firestore"
 // firebase.js で db として export したものを import
 import { db } from "@/firebase.js"
-import Modal from "./Modal.vue"
+
 export default {
   name: "HelloWorld",
-  components: {
-    Modal,
-  },
+
   data() {
     return {
       posts: [
@@ -63,10 +60,15 @@ export default {
 </script>
 
 <style scoped>
+.post-page {
+  margin: 100px;
+}
 .home__wrapper {
   margin: 0 auto;
   max-width: 600px;
   line-height: 50px;
+  position: relative;
+  top: 30px;
 }
 
 .form__textarea1 {
@@ -110,5 +112,28 @@ textarea:invalid {
   justify-content: flex-end;
   position: relative;
   right: 270px;
+}
+#overlay {
+  /*要素を重ねた時の順番*/
+  z-index: 1;
+
+  /*画面全体を覆う設定*/
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  /*画面の中央に要素を表示させる設定*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#content {
+  z-index: 2;
+  width: 50%;
+  padding: 1em;
+  background: #fff;
 }
 </style>

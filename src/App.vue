@@ -1,14 +1,6 @@
 <template>
   <Header></Header>
-  <div>
-    <div>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/post-page">投稿する</router-link> |
-      <router-link to="/post-list">みんなの投稿</router-link> |
-      <router-link to="/mypage">Mypage</router-link>
-    </div>
-    <router-view />
-  </div>
+  <router-view></router-view>
 
   <Footer></Footer>
 </template>
