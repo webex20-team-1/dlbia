@@ -4,7 +4,6 @@ import PostApp from "../views/PostApp.vue"
 import PostList from "../views/PostList.vue"
 import SignIn from "../views/SignIn.vue"
 import MyApp from "../views/MyApp.vue"
-import NickName from "../views/NickName.vue"
 import PostRate from "../views/PostRate.vue"
 
 const routes = [
@@ -33,11 +32,6 @@ const routes = [
     path: "/myapp",
     name: "myapp",
     component: MyApp,
-  },
-  {
-    path: "/nickname",
-    name: "nickname",
-    component: NickName,
   },
   {
     path: "/post/:id",

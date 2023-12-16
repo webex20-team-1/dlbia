@@ -27,7 +27,7 @@ export default {
     const auth = getAuth()
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        this.$router.push("/nickname")
+        this.$router.push("/myapp")
       }
     })
   },

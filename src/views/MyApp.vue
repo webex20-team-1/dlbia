@@ -4,7 +4,7 @@
   </div>
   <div class="post-container">
     <!--  投稿表示 -->
-    <div class="post-contents" v-for="post in userPosts" :key="post.userid">
+    <div class="post-contents" v-for="post in userPosts" :key="post.id">
       <div class="post-contents-name">Name</div>
       <div>{{ post.text }}</div>
       <div class="post-contents-name">URL</div>
