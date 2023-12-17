@@ -10,7 +10,7 @@
       >
       |
       <router-link to="/post-page" class="router-link">投稿する</router-link> |
-      <router-link to="/mypage" class="router-link">My Page</router-link>
+      <router-link to="/myapp" class="router-link">My Page</router-link>
     </nav>
   </header>
 </template>

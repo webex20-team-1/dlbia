@@ -3,15 +3,21 @@
     <h1>投稿</h1>
 
     <div class="home__wrapper">
-      <textarea class="form__textarea1" v-model="text" placeholder="アプリ名" />
-      <textarea class="form__textarea2" v-model="url" placeholder="url" />
-      <textarea
-        class="form__textarea3"
-        v-model="explanation"
-        placeholder="説明"
-      />
-      <div class="form__buttons">
-        <button v-on:click="postTweet" class="form__submit-button">投稿</button>
+      <div class="form__wrapper">
+        <textarea
+          class="form__textarea"
+          v-model="text"
+          placeholder="アプリ名"
+        />
+        <textarea class="form__textarea" v-model="url" placeholder="url" />
+        <textarea
+          class="form__textarea3"
+          v-model="explanation"
+          placeholder="説明"
+        />
+        <div class="form__buttons">
+          <button v-on:click="postApp" class="form__submit-button">投稿</button>
+        </div>
       </div>
     </div>
   </div>
@@ -21,6 +27,7 @@
 import { collection, addDoc } from "firebase/firestore"
 // firebase.js で db として export したものを import
 import { db } from "@/firebase.js"
+import { getAuth, onAuthStateChanged } from "firebase/auth"
 
 export default {
   name: "HelloWorld",
@@ -33,16 +40,30 @@ export default {
         //   text: "こんにちは、ツイートの本文です。"
         // }
       ],
+      text: "",
+      url: "",
     }
   },
 
   methods: {
-    postTweet() {
-      /* 変更点１ */
-      addDoc(collection(db, "posts"), {
-        text: this.text,
-        url: this.url,
-        explanation: this.explanation,
+    postApp() {
+      // Firebaseのユーザー状態の変更を監視
+      const auth = getAuth() // getAuthメソッドを使用してauthモジュールを取得
+
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // ユーザーがログインしている場合
+          addDoc(collection(db, "posts"), {
+            text: this.text,
+            url: this.url,
+            explanation: this.explanation,
+            userid: user.uid,
+          })
+          this.$router.push("/postlist") // ログイン後のページにリダイレクト
+        } else {
+          // ユーザーがログインしていない場合
+          this.$router.push("/signin") // ログインページにリダイレクト
+        }
       })
     },
   },

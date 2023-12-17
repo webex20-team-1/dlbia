@@ -2,7 +2,8 @@ import { createRouter, createWebHistory } from "vue-router"
 import HomeView from "../views/HomeView.vue"
 import PostApp from "../views/PostApp.vue"
 import PostList from "../views/PostList.vue"
-import MyPage from "../views/MyPage.vue"
+import SignIn from "../views/SignIn.vue"
+import MyApp from "../views/MyApp.vue"
 import PostRate from "../views/PostRate.vue"
 
 const routes = [
@@ -23,9 +24,14 @@ const routes = [
     component: PostList,
   },
   {
-    path: "/mypage",
-    name: "MyPage",
-    component: MyPage,
+    path: "/signin",
+    name: "SignIn",
+    component: SignIn,
+  },
+  {
+    path: "/myapp",
+    name: "myapp",
+    component: MyApp,
   },
   {
     path: "/post/:id",
