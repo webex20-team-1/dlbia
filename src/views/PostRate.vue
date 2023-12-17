@@ -17,17 +17,30 @@
       <!-- 評価 -->
       <textarea
         class="rate-textbox"
-        v-model="fbtext"
-        placeholder="テキストによる評価"
+        v-model="fbtext1"
+        placeholder="良かった点"
       ></textarea>
+      <textarea
+        class="rate-textbox"
+        v-model="fbtext2"
+        placeholder="改善点"
+      ></textarea>
+
       <button v-on:click="postFeedback">投稿</button>
     </div>
 
     <h2>Feedbacks List</h2>
     <div class="rate-container">
       <!-- 評価一覧 -->
-      <div v-for="feedback in feedbacks" v-bind:key="feedback.id">
-        {{ feedback.text }}
+      <div
+        class="rate-contents"
+        v-for="feedback in feedbacks"
+        v-bind:key="feedback.id"
+      >
+        <div class="rate1">良かった点</div>
+        <div>{{ feedback.text1 }}</div>
+        <div class="rate2">改善点</div>
+        <div>{{ feedback.text2 }}</div>
       </div>
     </div>
   </div>
@@ -75,6 +88,7 @@ export default {
     // feedbackRef は特定の投稿に関連付けられた "feedbacks" サブコレクションを指す
     const feedbacksRef = collection(docRef, "feedbacks")
     const feedbacksSnap = await getDocs(feedbacksRef)
+
     this.feedbacks = feedbacksSnap.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
@@ -89,7 +103,8 @@ export default {
       )
 
       addDoc(feedbackRef, {
-        text: this.fbtext,
+        text1: this.fbtext1,
+        text2: this.fbtext2,
       })
     },
   },
@@ -115,5 +130,21 @@ export default {
 }
 .app-title {
   font-weight: bold;
+}
+.rate-textbox {
+  width: 90%;
+  height: 60px;
+  padding: 10px;
+  line-height: 1rem;
+  border-radius: 1px;
+  border: none;
+  resize: none;
+  border: 3px solid #06c4ef;
+}
+.rate-contents {
+  border: 3px solid lightgrey;
+  text-align: center;
+  margin: 2rem;
+  padding: 1em;
 }
 </style>

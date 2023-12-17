@@ -11,10 +11,7 @@
         placeholder="説明"
       />
       <div class="form__buttons">
-        <button v-on:click="postTweet, showModal()" class="form__submit-button">
-          投稿
-        </button>
-        <modal :message="message" v-show="modal"></modal>
+        <button v-on:click="postTweet" class="form__submit-button">投稿</button>
       </div>
     </div>
   </div>
@@ -24,12 +21,10 @@
 import { collection, addDoc } from "firebase/firestore"
 // firebase.js で db として export したものを import
 import { db } from "@/firebase.js"
-import Modal from "./Modal.vue"
+
 export default {
   name: "HelloWorld",
-  components: {
-    Modal,
-  },
+
   data() {
     return {
       posts: [
@@ -38,18 +33,10 @@ export default {
         //   text: "こんにちは、ツイートの本文です。"
         // }
       ],
-      message: "よろしいですか？",
-      modal: false,
     }
   },
-  props: {
-    msg: String,
-  },
+
   methods: {
-    showModal() {
-      // モーダル表示する際の処理が必要ならここに書く
-      this.modal = true
-    },
     postTweet() {
       /* 変更点１ */
       addDoc(collection(db, "posts"), {
