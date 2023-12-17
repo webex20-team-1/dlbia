@@ -45,6 +45,9 @@ export default {
           })
         })
       })
+    } else {
+      // ユーザーがログインしていない場合
+      this.$router.push("/signin")
     }
   },
 }
