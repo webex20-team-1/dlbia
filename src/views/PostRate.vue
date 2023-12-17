@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="postrate">
     <h1>評価とコメント</h1>
 
     <h2>App Detail</h2>
@@ -146,5 +146,8 @@ export default {
   text-align: center;
   margin: 2rem;
   padding: 1em;
+}
+.postrate {
+  margin: 100px;
 }
 </style>
