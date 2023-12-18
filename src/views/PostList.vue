@@ -9,6 +9,8 @@
       <div>{{ post.text }}</div>
       <div class="post-contents-name">URL</div>
       <div>{{ post.url }}</div>
+      <div class="post-contents-name">説明</div>
+      <div>{{ post.explanation }}</div>
       <router-link v-bind:to="{ name: 'Rate', params: { id: post.id } }"
         >Read more</router-link
       >
@@ -17,7 +19,7 @@
 </template>
 
 <script>
-import { collection, getDocs } from "firebase/firestore"
+import { collection, getDocs, query, orderBy } from "firebase/firestore"
 // firebase.js で db として export したものを import
 import { db } from "@/firebase.js"
 export default {
@@ -32,7 +34,9 @@ export default {
     }
   },
   created() {
-    getDocs(collection(db, "posts")).then((snapshot) => {
+    const sampleRef = collection(db, "posts")
+    const q = query(sampleRef, orderBy("createdAt", "desc"))
+    getDocs(q).then((snapshot) => {
       snapshot.forEach((doc) => {
         this.posts.push({
           id: doc.id,

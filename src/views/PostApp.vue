@@ -5,11 +5,16 @@
     <div class="home__wrapper">
       <div class="form__wrapper">
         <textarea
-          class="form__textarea"
+          class="form__textarea1"
           v-model="text"
           placeholder="アプリ名"
         />
-        <textarea class="form__textarea" v-model="url" placeholder="url" />
+        <textarea class="form__textarea2" v-model="url" placeholder="url" />
+        <textarea
+          class="form__textarea3"
+          v-model="explanation"
+          placeholder="説明"
+        />
         <div class="form__buttons">
           <button v-on:click="postApp" class="form__submit-button">投稿</button>
         </div>
@@ -19,12 +24,14 @@
 </template>
 
 <script>
-import { collection, addDoc } from "firebase/firestore"
+import { collection, addDoc, serverTimestamp } from "firebase/firestore"
 // firebase.js で db として export したものを import
 import { db } from "@/firebase.js"
 import { getAuth, onAuthStateChanged } from "firebase/auth"
 
 export default {
+  name: "HelloWorld",
+
   data() {
     return {
       posts: [
@@ -37,6 +44,7 @@ export default {
       url: "",
     }
   },
+
   methods: {
     postApp() {
       // Firebaseのユーザー状態の変更を監視
@@ -48,7 +56,9 @@ export default {
           addDoc(collection(db, "posts"), {
             text: this.text,
             url: this.url,
+            explanation: this.explanation,
             userid: user.uid,
+            createdAT: serverTimestamp(),
           })
           this.$router.push("/post-list") // ログイン後のページにリダイレクト
         } else {
@@ -62,22 +72,49 @@ export default {
 </script>
 
 <style scoped>
+.post-page {
+  margin: 100px;
+}
 .home__wrapper {
   margin: 0 auto;
   max-width: 600px;
-  background-color: #ccc;
+  line-height: 50px;
+  position: relative;
+  top: 30px;
 }
-.form__wrapper {
-  padding: 1rem;
-}
-.form__textarea {
-  width: 100%;
-  height: calc(1.3rem * 3 + 0.5rem * 2);
-  padding: 0.5rem;
+
+.form__textarea1 {
+  width: 90%;
+  height: 20px;
+  padding: 10px;
   line-height: 1.3rem;
-  border-radius: 5px;
+  border-radius: 1px;
   border: none;
   resize: none;
+  border: 3px solid #06c4ef;
+}
+.form__textarea2 {
+  width: 90%;
+  height: 20px;
+  padding: 10px;
+  line-height: 1.3rem;
+  border-radius: 1px;
+  border: none;
+  resize: none;
+  border: 3px solid #06c4ef;
+}
+.form__textarea3 {
+  width: 90%;
+  height: 60px;
+  padding: 10px;
+  line-height: 1rem;
+  border-radius: 1px;
+  border: none;
+  resize: none;
+  border: 3px solid #06c4ef;
+}
+textarea:invalid {
+  background: #ef2906;
 }
 .form__textarea:focus {
   outline: none;
@@ -85,5 +122,7 @@ export default {
 .form__buttons {
   display: flex;
   justify-content: flex-end;
+  position: relative;
+  right: 270px;
 }
 </style>

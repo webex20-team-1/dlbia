@@ -1,14 +1,6 @@
 <template>
   <Header></Header>
-  <div>
-    <div>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/post-page">投稿する</router-link> |
-      <router-link to="/post-list">みんなの投稿</router-link> |
-      <router-link to="/signin">Mypage</router-link>
-    </div>
-    <router-view />
-  </div>
+  <router-view></router-view>
 
   <Footer></Footer>
 </template>
@@ -30,7 +22,11 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #0e0e0e;
+}
+.header {
+  position: relative;
+  margin: 0 auto;
 }
 
 nav {
@@ -39,10 +35,11 @@ nav {
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #0b0a0a;
 }
 
 nav a.router-link-exact-active {
   color: #42b983;
+  position: relative;
 }
 </style>
