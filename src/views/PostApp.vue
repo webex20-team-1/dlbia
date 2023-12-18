@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { collection, addDoc } from "firebase/firestore"
+import { collection, addDoc, serverTimestamp } from "firebase/firestore"
 // firebase.js で db として export したものを import
 import { db } from "@/firebase.js"
 import { getAuth, onAuthStateChanged } from "firebase/auth"
@@ -58,6 +58,7 @@ export default {
             url: this.url,
             explanation: this.explanation,
             userid: user.uid,
+            createdAT: serverTimestamp(),
           })
           this.$router.push("/post-list") // ログイン後のページにリダイレクト
         } else {
