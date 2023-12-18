@@ -5,11 +5,11 @@
     <div class="home__wrapper">
       <div class="form__wrapper">
         <textarea
-          class="form__textarea"
+          class="form__textarea1"
           v-model="text"
           placeholder="アプリ名"
         />
-        <textarea class="form__textarea" v-model="url" placeholder="url" />
+        <textarea class="form__textarea2" v-model="url" placeholder="url" />
         <textarea
           class="form__textarea3"
           v-model="explanation"

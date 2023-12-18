@@ -67,6 +67,8 @@ export default {
         //   text,time,useridなど？
         // }
       ],
+      fbtext1: "",
+      fbtext2: "",
     }
   },
   async created() {
@@ -95,16 +97,23 @@ export default {
     }))
   },
   methods: {
-    postFeedback() {
+    async postFeedback() {
       // feedbackRefがidで指定したpostsの投稿の中にfeedbacksというコレクションを指すようにする
       const feedbackRef = collection(
         doc(db, "posts", this.$route.params.id),
         "feedbacks"
       )
 
-      addDoc(feedbackRef, {
+      const feedback = {
         text1: this.fbtext1,
         text2: this.fbtext2,
+      }
+      // 投稿した id を得るために ref で受ける
+      const ref = await addDoc(feedbackRef, feedback)
+      // this.feedbacks に追加する (これで表示できる)
+      this.feedbacks.push({
+        id: ref.id,
+        ...feedback,
       })
     },
   },
