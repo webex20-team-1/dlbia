@@ -59,7 +59,7 @@ export default {
             explanation: this.explanation,
             userid: user.uid,
           })
-          this.$router.push("/postlist") // ログイン後のページにリダイレクト
+          this.$router.push("/post-list") // ログイン後のページにリダイレクト
         } else {
           // ユーザーがログインしていない場合
           this.$router.push("/signin") // ログインページにリダイレクト
