@@ -36,6 +36,7 @@
 
     <div class="rate-container">
       <h2 class="postrate-title">Feedbacks List</h2>
+      <div>Thank you for your feedbacks!</div>
       <!-- 評価一覧 -->
       <div
         class="rate-contents"
