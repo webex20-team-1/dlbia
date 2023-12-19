@@ -1,10 +1,10 @@
 <template>
   <header class="header">
-    <div class="header">
-      <span class="logo">Homeai</span>
+    <div class="logo" @click="backHome">
+      <img src="../assets/homeai_logo3.png" alt="COVID-LOG" />
     </div>
     <nav>
-      <router-link to="/" class="router-link">Home</router-link> |
+      <router-link to="/" class="router-link">ホーム</router-link> |
       <router-link to="/post-list" class="router-link"
         >アプリを評価する</router-link
       >
@@ -13,10 +13,21 @@
         >アプリを投稿する</router-link
       >
       |
-      <router-link to="/myapp" class="router-link">My Page</router-link>
+      <router-link to="/myapp" class="router-link">マイページ</router-link>
     </nav>
   </header>
 </template>
+
+<script>
+export default {
+  methods: {
+    backHome() {
+      this.$router.push("/")
+    },
+  },
+}
+</script>
+
 <style scoped>
 .header {
   display: flex;
@@ -38,6 +49,10 @@ nav {
   margin-inline: 15px;
 }
 .logo {
-  height: 50px;
+  display: inline-block;
+  cursor: pointer;
+}
+.logo img {
+  height: 150px;
 }
 </style>
