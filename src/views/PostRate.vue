@@ -5,10 +5,14 @@
     <h2>App Detail</h2>
     <div class="app-container">
       <!-- アプリの詳細 -->
-      <p class="app-title">アプリ説明</p>
+      <p class="app-title">お名前</p>
+      <div>{{ posts.name }}</div>
+      <p class="app-title">アプリ名</p>
       <div>{{ posts.text }}</div>
       <p class="app-title">URL</p>
-      <div>{{ posts.url }}</div>
+      <a :href="posts.url" target="blank">{{ posts.url }}</a>
+      <p class="app-title">説明</p>
+      <div>{{ posts.explanation }}</div>
     </div>
 
     <h2>Your Feedback</h2>
