@@ -1,6 +1,7 @@
 <template>
   <div class="postrate">
     <h1>評価とコメント</h1>
+    <div>プロダクトの感想をフィードバックとしてぜひ教えてね！</div>
 
     <div class="post-contents">
       <h2 class="postrate-title">App Details</h2>
