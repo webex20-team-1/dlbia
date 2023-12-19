@@ -41,9 +41,9 @@
         v-for="feedback in feedbacks"
         v-bind:key="feedback.id"
       >
-        <div class="rate1">良かった点</div>
+        <div class="rate1-title">良かった点</div>
         <div>{{ feedback.text1 }}</div>
-        <div class="rate2">改善点</div>
+        <div class="rate2-title">改善点</div>
         <div>{{ feedback.text2 }}</div>
       </div>
     </div>
@@ -175,16 +175,6 @@ export default {
     margin-right: 10%;
   }
 }
-
-/*Feedbacks List*/
-.rate-container {
-  border: 3px solid lightgrey;
-  text-align: left;
-  margin: 2rem;
-  padding: 1em;
-  padding-left: 5rem;
-  padding-right: 5rem;
-}
 .rate-textbox {
   width: 90%;
   height: 60px;
@@ -195,13 +185,49 @@ export default {
   resize: none;
   border: 3px solid #06c4ef;
 }
-.rate-contents {
-  border: 3px solid lightgrey;
-  text-align: center;
-  margin: 2rem;
-  padding: 1em;
-}
 .postrate {
   margin: 100px;
+}
+
+/*Feedbacks List*/
+.rate-container {
+  border: none;
+  background-color: #f7f2ec;
+  border-radius: 20px;
+  position: relative;
+  margin: 3rem;
+  margin-left: 0%;
+  margin-right: 0%;
+  padding: 2em;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  padding-left: 5%;
+  padding-right: 5%;
+  .rate-contents {
+    border: none;
+    background-color: white;
+    border-radius: 10px;
+    text-align: left;
+    margin: 2rem;
+    margin-bottom: 3rem;
+    padding: 2em;
+  }
+  .rate1-title {
+    font-size: 17px;
+    color: #b74e47;
+    margin-bottom: 1em;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 2px solid #b74e47;
+  }
+  .rate2-title {
+    font-size: 17px;
+    color: #498293;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 2px solid #498293;
+  }
 }
 </style>
