@@ -2,6 +2,11 @@
   <div>
     <h1>みんなの投稿</h1>
   </div>
+  <div>
+    みんなの作品集！URLに飛んでアプリを閲覧できるよ！
+    <br />閲覧後はぜひフィードバックを送って感動を共有してね～
+  </div>
+
   <div class="post-container">
     <!--  投稿表示 -->
     <div class="post-contents" v-for="post in posts" :key="post.id">
@@ -74,7 +79,8 @@ export default {
   border-radius: 20px;
   position: relative;
   box-sizing: border-box;
-  margin: 5rem;
+  margin: 3rem;
+  margin-bottom: 5rem;
   margin-left: 15%;
   margin-right: 15%;
   padding: 2em;
