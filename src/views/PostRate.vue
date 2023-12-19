@@ -17,7 +17,7 @@
 
     <h2>Your Feedback</h2>
     このアプリに対するフィードバックを送ってください！
-    <div>
+    <div class="feedback-post">
       <!-- 評価 -->
       <textarea
         class="rate-textbox"
@@ -30,7 +30,9 @@
         placeholder="改善点"
       ></textarea>
 
-      <button v-on:click="postFeedback">投稿</button>
+      <button class="form__submit-button" v-on:click="postFeedback">
+        投稿
+      </button>
     </div>
 
     <h2>Feedbacks List</h2>
@@ -144,15 +146,34 @@ export default {
 .app-title {
   font-weight: bold;
 }
+.feedback-post {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .rate-textbox {
-  width: 90%;
+  width: 70%;
   height: 60px;
   padding: 10px;
+  margin: 30px;
   line-height: 1rem;
   border-radius: 1px;
   border: none;
   resize: none;
   border: 3px solid #06c4ef;
+}
+.form__submit-button {
+  width: 70%;
+  height: 60px;
+  font-size: 150%;
+  background: #00adb5;
+  color: #fff;
+  border-radius: 50px;
+  font-weight: normal;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 .rate-contents {
   border: 3px solid lightgrey;
