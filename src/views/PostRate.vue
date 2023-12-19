@@ -2,8 +2,8 @@
   <div class="postrate">
     <h1>評価とコメント</h1>
 
-    <h2>App Details</h2>
     <div class="post-contents">
+      <h2 class="postrate-title">App Details</h2>
       <!-- アプリの詳細 -->
       <p class="post-contents-name1">アプリ名</p>
       <div class="post-appname">{{ posts.text }}</div>
@@ -33,8 +33,8 @@
       <button v-on:click="postFeedback">投稿</button>
     </div>
 
-    <h2>Feedbacks List</h2>
     <div class="rate-container">
+      <h2 class="postrate-title">Feedbacks List</h2>
       <!-- 評価一覧 -->
       <div
         class="rate-contents"
@@ -126,12 +126,18 @@ export default {
 
 <style scoped>
 /*App Detail*/
+.postrate-title {
+  margin-top: 0%;
+  text-align: center;
+}
 .post-contents {
-  margin-left: 0%;
-  margin-right: 0%;
+  margin-left: 5%;
+  margin-right: 5%;
   padding-left: 10%;
   padding-right: 10%;
+  padding-bottom: 5%;
   text-align: left;
+  background-color: #f7f2ec;
   .post-contents-name1 {
     font-size: 17px;
     color: #6c6963;
@@ -192,15 +198,13 @@ export default {
 /*Feedbacks List*/
 .rate-container {
   border: none;
-  background-color: #f7f2ec;
+  background-color: #f8f5e3;
   border-radius: 20px;
   position: relative;
   margin: 3rem;
   margin-left: 0%;
   margin-right: 0%;
   padding: 2em;
-  padding-top: 3em;
-  padding-bottom: 3em;
   padding-left: 5%;
   padding-right: 5%;
   .rate-contents {
