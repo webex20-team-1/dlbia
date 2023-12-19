@@ -1,18 +1,19 @@
 <template>
   <div class="postrate">
     <h1>評価とコメント</h1>
+    <div>プロダクトの感想をフィードバックとしてぜひ教えてね！</div>
 
-    <h2>App Detail</h2>
-    <div class="app-container">
+    <div class="post-contents">
+      <h2 class="postrate-title">App Details</h2>
       <!-- アプリの詳細 -->
-      <p class="app-title">お名前</p>
-      <div>{{ posts.name }}</div>
-      <p class="app-title">アプリ名</p>
-      <div>{{ posts.text }}</div>
-      <p class="app-title">URL</p>
-      <a :href="posts.url" target="blank">{{ posts.url }}</a>
-      <p class="app-title">説明</p>
-      <div>{{ posts.explanation }}</div>
+      <p class="post-contents-name1">アプリ名</p>
+      <div class="post-appname">{{ posts.text }}</div>
+      <p class="post-contents-name">URL</p>
+      <a class="post-url" :href="posts.url" target="blank">{{ posts.url }}</a>
+      <p class="post-contents-name">アプリ詳細</p>
+      <div class="post-explanation">{{ posts.explanation }}</div>
+      <p class="post-contents-name">作成者</p>
+      <div class="post-author">{{ posts.name }}</div>
     </div>
 
     <h2>Your Feedback</h2>
@@ -33,17 +34,18 @@
       <button v-on:click="postFeedback">投稿</button>
     </div>
 
-    <h2>Feedbacks List</h2>
     <div class="rate-container">
+      <h2 class="postrate-title">Feedbacks List</h2>
+      <div>Thank you for your feedbacks!</div>
       <!-- 評価一覧 -->
       <div
         class="rate-contents"
         v-for="feedback in feedbacks"
         v-bind:key="feedback.id"
       >
-        <div class="rate1">良かった点</div>
+        <div class="rate1-title">良かった点</div>
         <div>{{ feedback.text1 }}</div>
-        <div class="rate2">改善点</div>
+        <div class="rate2-title">改善点</div>
         <div>{{ feedback.text2 }}</div>
       </div>
     </div>
@@ -125,24 +127,61 @@ export default {
 </script>
 
 <style scoped>
-.app-container {
-  border: 3px solid lightgrey;
-  text-align: left;
-  margin: 2rem;
-  padding: 1em;
-  padding-left: 5rem;
-  padding-right: 5rem;
+/*App Detail*/
+.postrate-title {
+  margin-top: 0%;
+  text-align: center;
 }
-.rate-container {
-  border: 3px solid lightgrey;
+.post-contents {
+  margin-left: 5%;
+  margin-right: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 5%;
   text-align: left;
-  margin: 2rem;
-  padding: 1em;
-  padding-left: 5rem;
-  padding-right: 5rem;
-}
-.app-title {
-  font-weight: bold;
+  background-color: #f7f2ec;
+  .post-contents-name1 {
+    font-size: 17px;
+    color: #6c6963;
+    margin-bottom: 1em;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 2px solid #6c6963;
+  }
+  .post-contents-name {
+    font-size: 17px;
+    color: #6c6963;
+    margin-top: 4em;
+    margin-bottom: 1em;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 2px solid #6c6963;
+  }
+  .post-appname {
+    /*アプリ名*/
+    font-weight: bold;
+    font-size: 25px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 1em;
+    white-space: nowrap; /*空白部分の文字列を折り返さない*/
+  }
+  .post-url {
+    font-weight: bold;
+    color: #b74e47;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .post-explanation {
+    margin: 1em;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: left;
+  }
+  .post-author {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
 }
 .rate-textbox {
   width: 90%;
@@ -154,13 +193,47 @@ export default {
   resize: none;
   border: 3px solid #06c4ef;
 }
-.rate-contents {
-  border: 3px solid lightgrey;
-  text-align: center;
-  margin: 2rem;
-  padding: 1em;
-}
 .postrate {
   margin: 100px;
+}
+
+/*Feedbacks List*/
+.rate-container {
+  border: none;
+  background-color: #f8f5e3;
+  border-radius: 20px;
+  position: relative;
+  margin: 3rem;
+  margin-left: 0%;
+  margin-right: 0%;
+  padding: 2em;
+  padding-left: 5%;
+  padding-right: 5%;
+  .rate-contents {
+    border: none;
+    background-color: white;
+    border-radius: 10px;
+    text-align: left;
+    margin: 2rem;
+    margin-bottom: 3rem;
+    padding: 2em;
+  }
+  .rate1-title {
+    font-size: 17px;
+    color: #b74e47;
+    margin-bottom: 1em;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 2px solid #b74e47;
+  }
+  .rate2-title {
+    font-size: 17px;
+    color: #498293;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 2px solid #498293;
+  }
 }
 </style>
