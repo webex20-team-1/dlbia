@@ -1,19 +1,33 @@
 <template>
   <header class="header">
-    <div class="logo">
-      <img src="../assets/logo.png" alt="COVID-LOG" />
+    <div class="logo" @click="backHome">
+      <img src="../assets/homeai_logo3.png" alt="COVID-LOG" />
     </div>
     <nav>
-      <router-link to="/" class="router-link">Home</router-link> |
+      <router-link to="/" class="router-link">ホーム</router-link> |
       <router-link to="/post-list" class="router-link"
-        >みんなの投稿</router-link
+        >アプリを評価する</router-link
       >
       |
-      <router-link to="/post-page" class="router-link">投稿する</router-link> |
-      <router-link to="/myapp" class="router-link">My Page</router-link>
+      <router-link to="/post-page" class="router-link"
+        >アプリを投稿する</router-link
+      >
+      |
+      <router-link to="/myapp" class="router-link">マイページ</router-link>
     </nav>
   </header>
 </template>
+
+<script>
+export default {
+  methods: {
+    backHome() {
+      this.$router.push("/")
+    },
+  },
+}
+</script>
+
 <style scoped>
 .header {
   display: flex;
@@ -27,13 +41,18 @@ nav {
   justify-content: end;
   width: 100%;
 }
-#nav a.router-link-exact-active {
-  color: #b98942;
+.router-link-exact-active {
+  color: whitesmoke; /* アクティブなリンクの色を赤色に変更 */
 }
 .router-link {
   display: inline-block;
+  margin-inline: 15px;
 }
 .logo {
-  height: 50px;
+  display: inline-block;
+  cursor: pointer;
+}
+.logo img {
+  height: 150px;
 }
 </style>
