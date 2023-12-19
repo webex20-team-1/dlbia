@@ -7,13 +7,15 @@
     <br />閲覧後はぜひフィードバックを送って感動を共有してね～
   </div>
 
+  <!--  投稿表示 -->
   <div class="post-container">
-    <!--  投稿表示 -->
     <div class="post-contents" v-for="post in posts" :key="post.id">
       <div class="post-appnameandurl-container">
+        <!--アプリ名-->
         <div class="post-appname-container">
           <div class="post-appname">{{ post.text }}</div>
         </div>
+        <!--URL-->
         <div class="post-url-container">
           <div class="post-contents-name">
             URL
@@ -23,20 +25,25 @@
           </div>
         </div>
       </div>
+
+      <!--説明-->
       <div class="post-explanation-container">
         <div class="post-contents-name">アプリ詳細</div>
         <div class="post-explanation">{{ post.explanation }}</div>
       </div>
+
+      <!--作成者-->
       <div class="post-authorname-container">
         <div>
           This product is made by:
           <span>{{ post.name }}</span>
         </div>
       </div>
+
       <router-link
         class="go-to-feedback"
         v-bind:to="{ name: 'Rate', params: { id: post.id } }"
-        >フィードバックを送る</router-link
+        >Go to Feedback</router-link
       >
     </div>
   </div>
@@ -72,7 +79,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .post-contents {
   border: none;
   background-color: #f7f2ec;
@@ -84,6 +91,8 @@ export default {
   margin-left: 15%;
   margin-right: 15%;
   padding: 2em;
+  padding-top: 3em;
+  padding-bottom: 3em;
   padding-left: 5%;
   padding-right: 5%;
   .post-contents-name {
@@ -128,7 +137,9 @@ export default {
     margin-bottom: 1em;
     text-align: left;
     .post-explanation {
-      margin: 0.5em;
+      margin: 1em;
+      margin-left: 10%;
+      margin-right: 10%;
     }
   }
   .post-authorname-container {
@@ -139,6 +150,7 @@ export default {
   .go-to-feedback {
     color: #b74e47;
     font-size: 18px;
+    font-weight: bold;
   }
 }
 </style>
