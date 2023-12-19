@@ -6,9 +6,13 @@
     <!--  投稿表示 -->
     <div class="post-contents" v-for="post in userPosts" :key="post.id">
       <div class="post-contents-name">Name</div>
+      <div>{{ post.name }}</div>
+      <div class="post-contents-name">アプリ名</div>
       <div>{{ post.text }}</div>
       <div class="post-contents-name">URL</div>
-      <div>{{ post.url }}</div>
+      <a :href="post.url" target="blank">{{ post.url }}</a>
+      <div class="post-contents-name">説明</div>
+      <div>{{ post.explanation }}</div>
       <router-link v-bind:to="{ name: 'Rate', params: { id: post.id } }"
         >Read more</router-link
       >

@@ -4,6 +4,7 @@
 
     <div class="home__wrapper">
       <div class="form__wrapper">
+        <textarea class="form__textarea1" v-model="name" placeholder="お名前" />
         <textarea
           class="form__textarea1"
           v-model="text"
@@ -40,8 +41,10 @@ export default {
         //   text: "こんにちは、ツイートの本文です。"
         // }
       ],
+      name: "",
       text: "",
       url: "",
+      explanation: "",
     }
   },
 
@@ -54,11 +57,12 @@ export default {
         if (user) {
           // ユーザーがログインしている場合
           addDoc(collection(db, "posts"), {
+            name: this.name,
             text: this.text,
             url: this.url,
             explanation: this.explanation,
             userid: user.uid,
-            createdAT: serverTimestamp(),
+            createdAt: serverTimestamp(),
           })
           this.$router.push("/post-list") // ログイン後のページにリダイレクト
         } else {
@@ -74,6 +78,7 @@ export default {
 <style scoped>
 .post-page {
   margin: 100px;
+  width: 100%;
 }
 .home__wrapper {
   margin: 0 auto;
@@ -112,6 +117,7 @@ export default {
   border: none;
   resize: none;
   border: 3px solid #06c4ef;
+  border-radius: 50px;
 }
 textarea:invalid {
   background: #ef2906;
@@ -119,10 +125,19 @@ textarea:invalid {
 .form__textarea:focus {
   outline: none;
 }
-.form__buttons {
+
+.form__submit-button {
+  font-size: 150%;
   display: flex;
   justify-content: flex-end;
   position: relative;
   right: 270px;
+  background: #00adb5;
+  color: #fff;
+  border-radius: 50px;
+  font-weight: normal;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 </style>
