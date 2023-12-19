@@ -1,5 +1,17 @@
 <template>
   <div class="home">
+    <div class="main">
+      <div class="video-area"></div>
+      <h1 class="titleTop">皆のプロダクトを<br />皆でより良くしよう</h1>
+    </div>
+    <div class="container">
+      <div class="whatIs">
+        <h2>What is Homeai?</h2>
+        <div class="text about text-pc">
+          朝の時間、無駄にしていませんか？<br />Moreningは朝活を頑張る人を応援するサイト。<br />ランニング、筋トレ、朝食作り、勉強...<br />Moreningを使って素敵な朝活ライフを過ごしませんか？
+        </div>
+      </div>
+    </div>
     <h3 class="post-sample">アプリを投稿して評価して貰おう！！</h3>
 
     <div>

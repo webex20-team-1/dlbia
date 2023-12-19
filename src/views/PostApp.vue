@@ -133,8 +133,8 @@ textarea:invalid {
   height: 60px;
   font-size: 150%;
   right: 270px;
-  background: #00adb5;
-  color: #fff;
+  background: #dca45f;
+  color: #160101;
   border-radius: 50px;
   font-weight: normal;
   text-align: center;

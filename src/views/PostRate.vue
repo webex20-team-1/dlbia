@@ -19,11 +19,15 @@
     このアプリに対するフィードバックを送ってください！
     <div class="feedback-post">
       <!-- 評価 -->
+      <p class="block-ttl">良かった点</p>
       <textarea
         class="rate-textbox"
         v-model="fbtext1"
-        placeholder="良かった点"
+        placeholder="例文：食に関するこだわりが深い(他の業界より業界愛が強い人が多い)会社の中に似た子が多い(採用人数少ないのもあって)
+比較的ホワイトで残業時間少ない,文系職でも工場で開発学んだりする,年功序列が根深い(若手は営業・工場がほとんど)
+"
       ></textarea>
+      <div class="block-ttl">改善点</div>
       <textarea
         class="rate-textbox"
         v-model="fbtext2"
@@ -149,7 +153,15 @@ export default {
 .feedback-post {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+}
+.block-ttl {
+  width: 200px;
+  text-align: left;
+  font-size: 1.5rem;
+  text-decoration: underline;
+  text-decoration-color: #f7f2ec;
+  text-decoration-thickness: 5px;
 }
 
 .rate-textbox {
@@ -157,18 +169,17 @@ export default {
   height: 60px;
   padding: 10px;
   margin: 30px;
-  line-height: 1rem;
-  border-radius: 1px;
-  border: none;
   resize: none;
-  border: 3px solid #06c4ef;
+  border: none;
+  background-color: #f7f2ec;
+  border-radius: 20px;
 }
 .form__submit-button {
   width: 70%;
   height: 60px;
   font-size: 150%;
-  background: #00adb5;
-  color: #fff;
+  background: #dca45f;
+  color: #160101;
   border-radius: 50px;
   font-weight: normal;
   text-align: center;
