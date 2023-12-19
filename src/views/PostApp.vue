@@ -110,14 +110,11 @@ export default {
 }
 .form__textarea3 {
   width: 90%;
-  height: 60px;
-  padding: 10px;
-  line-height: 1rem;
-  border-radius: 1px;
   border: none;
-  resize: none;
-  border: 3px solid #06c4ef;
-  border-radius: 50px;
+  background-color: #f7f2ec;
+  border-radius: 20px;
+
+  padding: 10px;
 }
 textarea:invalid {
   background: #ef2906;
@@ -126,14 +123,18 @@ textarea:invalid {
   outline: none;
 }
 
-.form__submit-button {
-  font-size: 150%;
+.form__buttons {
   display: flex;
-  justify-content: flex-end;
-  position: relative;
+  justify-content: center;
+}
+
+.form__submit-button {
+  width: 80%;
+  height: 60px;
+  font-size: 150%;
   right: 270px;
-  background: #00adb5;
-  color: #fff;
+  background: #dca45f;
+  color: #160101;
   border-radius: 50px;
   font-weight: normal;
   text-align: center;

@@ -18,20 +18,26 @@
 
     <h2>Your Feedback</h2>
     このアプリに対するフィードバックを送ってください！
-    <div>
+    <div class="feedback-post">
       <!-- 評価 -->
+      <p class="block-ttl">良かった点</p>
       <textarea
         class="rate-textbox"
         v-model="fbtext1"
-        placeholder="良かった点"
+        placeholder="例文：食に関するこだわりが深い(他の業界より業界愛が強い人が多い)会社の中に似た子が多い(採用人数少ないのもあって)
+比較的ホワイトで残業時間少ない,文系職でも工場で開発学んだりする,年功序列が根深い(若手は営業・工場がほとんど)
+"
       ></textarea>
+      <div class="block-ttl">改善点</div>
       <textarea
         class="rate-textbox"
         v-model="fbtext2"
         placeholder="改善点"
       ></textarea>
 
-      <button v-on:click="postFeedback">投稿</button>
+      <button class="form__submit-button" v-on:click="postFeedback">
+        投稿
+      </button>
     </div>
 
     <div class="rate-container">
@@ -183,15 +189,41 @@ export default {
     margin-right: 10%;
   }
 }
+.feedback-post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.block-ttl {
+  width: 200px;
+  text-align: left;
+  font-size: 1.5rem;
+  text-decoration: underline;
+  text-decoration-color: #f7f2ec;
+  text-decoration-thickness: 5px;
+}
+
 .rate-textbox {
-  width: 90%;
+  width: 70%;
   height: 60px;
   padding: 10px;
-  line-height: 1rem;
-  border-radius: 1px;
-  border: none;
+  margin: 30px;
   resize: none;
-  border: 3px solid #06c4ef;
+  border: none;
+  background-color: #f7f2ec;
+  border-radius: 20px;
+}
+.form__submit-button {
+  width: 70%;
+  height: 60px;
+  font-size: 150%;
+  background: #dca45f;
+  color: #160101;
+  border-radius: 50px;
+  font-weight: normal;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 .postrate {
   margin: 100px;
