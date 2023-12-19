@@ -123,14 +123,16 @@ export default {
     }
     /*URL*/
     .post-url-container {
-      position: absolute; /*親要素に対して絶対的な位置関係*/
-      left: 40%;
-      right: 5%;
+      position: relative; /* 相対位置に変更 */
+      display: flex;
+      justify-content: flex-end; /* 右寄せに変更 */
+      align-items: flex-end;
       padding-left: 3em;
       padding-right: 1em;
       margin-top: 2em;
       margin-bottom: 1em;
       flex-grow: 3;
+      text-align: right;
       .post-url {
         color: #b74e47;
         padding-left: 1em;
