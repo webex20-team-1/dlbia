@@ -1,16 +1,23 @@
 <template>
-  <div>
+  <div class="pagetitle">
     <h1>みんなの投稿</h1>
   </div>
   <div class="post-container">
     <!--  投稿表示 -->
     <div class="post-contents" v-for="post in posts" :key="post.id">
-      <div class="post-contents-name">Name</div>
-      <div>{{ post.text }}</div>
-      <div class="post-contents-name">URL</div>
-      <div>{{ post.url }}</div>
-      <div class="post-contents-name">説明</div>
-      <div>{{ post.explanation }}</div>
+      <div class="post-name">
+        <div class="post-contents-name">Name</div>
+        <div>{{ post.text }}</div>
+      </div>
+      <div class="post-url">
+        <div class="post-contents-name">URL</div>
+        <div>{{ post.url }}</div>
+      </div>
+      <div class="post-explanation">
+        <div class="post-contents-name">説明</div>
+        <div>{{ post.explanation }}</div>
+      </div>
+
       <router-link v-bind:to="{ name: 'Rate', params: { id: post.id } }"
         >Read more</router-link
       >
@@ -50,12 +57,21 @@ export default {
 
 <style scoped>
 .post-contents {
-  border: 3px solid lightgrey;
+  border: none;
+  background-color: #f7f2ec;
+  border-radius: 20px;
   text-align: center;
-  margin: 2rem;
+  position: relative;
+  box-sizing: border-box;
+  margin: 3rem;
+  margin-left: 15%;
+  margin-right: 15%;
   padding: 1em;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 .post-contents-name {
   text-align: left;
+  font-weight: bold;
 }
 </style>
