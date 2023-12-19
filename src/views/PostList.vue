@@ -43,7 +43,7 @@
       <router-link
         class="go-to-feedback"
         v-bind:to="{ name: 'Rate', params: { id: post.id } }"
-        >Go to Feedback</router-link
+        >Go to Feedbacks</router-link
       >
     </div>
   </div>
@@ -80,6 +80,7 @@ export default {
 </script>
 
 <style>
+/*各投稿*/
 .post-contents {
   border: none;
   background-color: #f7f2ec;
@@ -95,19 +96,22 @@ export default {
   padding-bottom: 3em;
   padding-left: 5%;
   padding-right: 5%;
+  /*各投稿内容タイトル*/
   .post-contents-name {
     font-size: 17px;
     color: #6c6963;
     text-align: left;
     font-weight: bold;
   }
+
+  /*線より上の要素(アプリ名とURL)*/
   .post-appnameandurl-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     border-bottom: 2px solid #373834; /*ボーダーライン*/
+    /*アプリ名*/
     .post-appname {
-      /*アプリ名*/
       font-weight: bold;
       font-size: 25px;
       padding-left: 10%;
@@ -117,6 +121,7 @@ export default {
       flex-grow: 2;
       white-space: nowrap; /*空白部分の文字列を折り返さない*/
     }
+    /*URL*/
     .post-url-container {
       position: absolute; /*親要素に対して絶対的な位置関係*/
       left: 40%;
@@ -132,6 +137,8 @@ export default {
       }
     }
   }
+
+  /*アプリ詳細*/
   .post-explanation-container {
     margin-top: 1em;
     margin-bottom: 1em;
@@ -142,11 +149,15 @@ export default {
       margin-right: 10%;
     }
   }
+
+  /*作成者*/
   .post-authorname-container {
     color: #6c6963;
     text-align: right;
     margin: 1em;
   }
+
+  /*フィードバックへのリンク*/
   .go-to-feedback {
     color: #b74e47;
     font-size: 18px;

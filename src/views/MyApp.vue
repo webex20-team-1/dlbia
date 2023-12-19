@@ -41,7 +41,7 @@
       <router-link
         class="go-to-feedback"
         v-bind:to="{ name: 'Rate', params: { id: post.id } }"
-        >Go to Feedback</router-link
+        >Go to Feedbacks</router-link
       >
     </div>
   </div>
