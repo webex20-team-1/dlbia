@@ -45,7 +45,7 @@ const router = createRouter({
   routes,
   scrollBehavior() {
     // ページ遷移時に最上部にスクロールする
-    return { x: 0, y: 0 }
+    return { top: 0 }
   },
 })
 
