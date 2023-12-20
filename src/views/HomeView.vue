@@ -1,8 +1,13 @@
 <template>
   <div class="home">
+    <img
+      class="logo"
+      src="../assets/homeai_logo3.png"
+      alt="カテゴリーの紹介写真"
+    />
     <div class="title-area">
       <h1 class="titleTop">
-        皆のプロダクトを <br />皆で磨きあげよう <br />愛のある評価を
+        皆のプロダクトを <br />愛のある評価をもって <br />皆で磨きあげよう
       </h1>
     </div>
 
@@ -74,7 +79,9 @@
   margin-right: 20%;
   padding-top: 2em;
   padding-bottom: 1.5em;
-  height: 200px;
+}
+.titleTop {
+  margin-top: 0%;
 }
 
 /*What's Homeai?*/

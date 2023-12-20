@@ -98,7 +98,7 @@ export default {
   height: 20px;
   padding: 10px;
   line-height: 1.3rem;
-  border-radius: 1px;
+  border-radius: 3px;
   border: none;
   resize: none;
   border: 2px solid #6c6963;
@@ -108,10 +108,10 @@ export default {
   height: 20px;
   padding: 10px;
   line-height: 1.3rem;
-  border-radius: 1px;
+  border-radius: 3px;
   border: none;
   resize: none;
-  border: 1.5px solid #6c6963;
+  border: 2px solid #6c6963;
 }
 .form__textarea3 {
   width: 90%;

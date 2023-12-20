@@ -196,7 +196,7 @@ export default {
 
 /*Your Feedbacks*/
 .feedback-post {
-  margin-bottom: 9em;
+  margin-bottom: 8em;
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
@@ -214,7 +214,7 @@ export default {
   text-decoration-thickness: 4px;
 }
 .block-ttl2 {
-  margin-top: 2rem;
+  margin-top: 1rem;
   width: 200px;
   font-weight: bold;
   color: #373834;
