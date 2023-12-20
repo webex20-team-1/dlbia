@@ -43,6 +43,10 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+  scrollBehavior() {
+    // ページ遷移時に最上部にスクロールする
+    return { x: 0, y: 0 }
+  },
 })
 
 export default router
