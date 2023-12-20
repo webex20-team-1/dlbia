@@ -35,7 +35,7 @@
       ></textarea>
 
       <button class="form__submit-button" v-on:click="postFeedback">
-        投稿する
+        投稿
       </button>
     </div>
 
@@ -205,7 +205,7 @@ export default {
   width: 200px;
   font-weight: bold;
   color: #373834;
-  font-size: 18px;
+  font-size: 20px;
   text-align: center;
   text-decoration: underline;
   text-decoration-color: #b74e47;
@@ -216,7 +216,7 @@ export default {
   width: 200px;
   font-weight: bold;
   color: #373834;
-  font-size: 18px;
+  font-size: 20px;
   text-align: center;
   text-decoration: underline;
   text-decoration-color: #498293;
@@ -237,13 +237,14 @@ export default {
   width: 12rem;
   height: 60px;
   font-size: 130%;
-  background: #e0a153;
+  background: #dca45f;
   color: white;
   border: none;
   border-radius: 60px;
   text-align: center;
   font-weight: bold;
   cursor: pointer;
+  border: 1.5px solid #6c6963;
   transition: all 0.3s;
 }
 
