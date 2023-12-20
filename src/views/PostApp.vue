@@ -1,16 +1,21 @@
 <template>
   <div class="post-page">
-    <h1>投稿</h1>
+    <h1>投稿する</h1>
+    <duv>あなたの素敵な作品を投稿してね！</duv>
 
     <div class="home__wrapper">
       <div class="form__wrapper">
-        <textarea class="form__textarea1" v-model="name" placeholder="お名前" />
         <textarea
           class="form__textarea1"
           v-model="text"
           placeholder="アプリ名"
         />
         <textarea class="form__textarea2" v-model="url" placeholder="url" />
+        <textarea
+          class="form__textarea1"
+          v-model="name"
+          placeholder="作成者名"
+        />
         <textarea
           class="form__textarea3"
           v-model="explanation"
@@ -78,7 +83,7 @@ export default {
 <style scoped>
 .post-page {
   margin: 100px;
-  width: 100%;
+  margin-top: 150px;
 }
 .home__wrapper {
   margin: 0 auto;
@@ -96,7 +101,7 @@ export default {
   border-radius: 1px;
   border: none;
   resize: none;
-  border: 3px solid #06c4ef;
+  border: 2px solid #6c6963;
 }
 .form__textarea2 {
   width: 90%;
@@ -106,15 +111,16 @@ export default {
   border-radius: 1px;
   border: none;
   resize: none;
-  border: 3px solid #06c4ef;
+  border: 1.5px solid #6c6963;
 }
 .form__textarea3 {
   width: 90%;
+  height: 5em;
   border: none;
   background-color: #f7f2ec;
-  border-radius: 20px;
-
+  border-radius: 10px;
   padding: 10px;
+  margin-bottom: 2rem;
 }
 textarea:invalid {
   background: #ef2906;
@@ -129,14 +135,15 @@ textarea:invalid {
 }
 
 .form__submit-button {
-  width: 80%;
+  width: 12rem;
   height: 60px;
-  font-size: 150%;
+  font-size: 130%;
   right: 270px;
   background: #dca45f;
-  color: #160101;
+  border: 2px solid #6c6963;
+  color: white;
   border-radius: 50px;
-  font-weight: normal;
+  font-weight: bold;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s;

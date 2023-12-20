@@ -34,7 +34,12 @@ export default {
   background-color: rgba(237, 152, 61, 0.945);
   text-align: center;
   height: 100px;
+  padding-top: 6px;
   width: 100%;
+  position: fixed;
+  z-index: 9999;
+  top: 0px;
+  left: 0px;
 }
 nav {
   display: flex;

@@ -16,23 +16,22 @@
       <div class="post-author">{{ posts.name }}</div>
     </div>
 
-    <h2>Your Feedback</h2>
+    <h2>Your Feedbacks</h2>
     このアプリに対するフィードバックを送ってください！
     <div class="feedback-post">
       <!-- 評価 -->
-      <p class="block-ttl">良かった点</p>
+      <p class="block-ttl1">良かった点</p>
       <textarea
         class="rate-textbox"
         v-model="fbtext1"
-        placeholder="例文：食に関するこだわりが深い(他の業界より業界愛が強い人が多い)会社の中に似た子が多い(採用人数少ないのもあって)
-比較的ホワイトで残業時間少ない,文系職でも工場で開発学んだりする,年功序列が根深い(若手は営業・工場がほとんど)
+        placeholder="例文：クイズの内容が凝ってた…CSSもめちゃくちゃ書き込んでてすごい！
 "
       ></textarea>
-      <div class="block-ttl">改善点</div>
+      <div class="block-ttl2">改善点</div>
       <textarea
         class="rate-textbox"
         v-model="fbtext2"
-        placeholder="改善点"
+        placeholder="例文：最後の質問を正解したら何か面白い仕掛けが出るともっと楽しく使えると思いました"
       ></textarea>
 
       <button class="form__submit-button" v-on:click="postFeedback">
@@ -133,6 +132,10 @@ export default {
 </script>
 
 <style scoped>
+.postrate {
+  margin: 100px;
+  margin-top: 150px;
+}
 /*App Detail*/
 .postrate-title {
   margin-top: 0%;
@@ -189,44 +192,60 @@ export default {
     margin-right: 10%;
   }
 }
+
+/*Your Feedbacks*/
 .feedback-post {
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.block-ttl {
+.block-ttl1 {
+  margin-bottom: 0;
   width: 200px;
-  text-align: left;
-  font-size: 1.5rem;
+  font-weight: bold;
+  color: #373834;
+  font-size: 20px;
+  text-align: center;
   text-decoration: underline;
-  text-decoration-color: #f7f2ec;
-  text-decoration-thickness: 5px;
+  text-decoration-color: #b74e47;
+  text-decoration-thickness: 4px;
+}
+.block-ttl2 {
+  margin-top: 3rem;
+  width: 200px;
+  font-weight: bold;
+  color: #373834;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: underline;
+  text-decoration-color: #498293;
+  text-decoration-thickness: 4px;
 }
 
 .rate-textbox {
   width: 70%;
   height: 60px;
-  padding: 10px;
   margin: 30px;
+  padding: 10px;
   resize: none;
   border: none;
   background-color: #f7f2ec;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 .form__submit-button {
-  width: 70%;
+  width: 12rem;
   height: 60px;
-  font-size: 150%;
+  font-size: 130%;
   background: #dca45f;
-  color: #160101;
-  border-radius: 50px;
-  font-weight: normal;
+  color: white;
+  border: none;
+  border-radius: 60px;
   text-align: center;
+  font-weight: bold;
   cursor: pointer;
+  border: 1.5px solid #6c6963;
   transition: all 0.3s;
-}
-.postrate {
-  margin: 100px;
 }
 
 /*Feedbacks List*/

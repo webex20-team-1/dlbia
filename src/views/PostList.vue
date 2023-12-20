@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="postlist">
     <h1>みんなの投稿</h1>
   </div>
   <div>
@@ -80,6 +80,9 @@ export default {
 </script>
 
 <style>
+.postlist {
+  margin-top: 150px;
+}
 /*各投稿*/
 .post-contents {
   border: none;
