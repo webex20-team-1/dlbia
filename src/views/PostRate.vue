@@ -227,6 +227,7 @@ export default {
 }
 .postrate {
   margin: 100px;
+  margin-top: 150px;
 }
 
 /*Feedbacks List*/

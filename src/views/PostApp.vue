@@ -78,7 +78,7 @@ export default {
 <style scoped>
 .post-page {
   margin: 100px;
-  width: 100%;
+  margin-top: 150px;
 }
 .home__wrapper {
   margin: 0 auto;

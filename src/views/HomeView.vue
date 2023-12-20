@@ -39,6 +39,7 @@
 <style scoped>
 .home {
   margin: 100px;
+  margin-top: 200px;
 }
 .postsample_img {
   width: 50%;

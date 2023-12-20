@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mypage">
     <h1>My Page</h1>
   </div>
   <div>
@@ -85,6 +85,9 @@ export default {
 </script>
 
 <style scoped>
+.mypage {
+  margin-top: 150px;
+}
 .post-contents-name {
   font-size: 17px;
   color: #6c6963;
