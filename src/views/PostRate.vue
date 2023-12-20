@@ -144,6 +144,7 @@ export default {
 .post-contents {
   margin-left: 5%;
   margin-right: 5%;
+  margin-bottom: 8em;
   padding-left: 10%;
   padding-right: 10%;
   padding-bottom: 5%;
@@ -195,6 +196,7 @@ export default {
 
 /*Your Feedbacks*/
 .feedback-post {
+  margin-bottom: 9em;
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
@@ -212,7 +214,7 @@ export default {
   text-decoration-thickness: 4px;
 }
 .block-ttl2 {
-  margin-top: 3rem;
+  margin-top: 2rem;
   width: 200px;
   font-weight: bold;
   color: #373834;
