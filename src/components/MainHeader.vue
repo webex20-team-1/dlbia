@@ -6,7 +6,7 @@
     <nav>
       <router-link to="/" class="router-link">ホーム</router-link> |
       <router-link to="/post-list" class="router-link"
-        >アプリを評価する</router-link
+        >アプリを見る・評価する</router-link
       >
       |
       <router-link to="/post-page" class="router-link"

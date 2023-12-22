@@ -24,7 +24,7 @@
       <textarea
         class="rate-textbox"
         v-model="fbtext1"
-        placeholder="例文：クイズの内容が凝ってた…CSSもめちゃくちゃ書き込んでてすごい！
+        placeholder="例文：良かった点は2つあった。クイズの内容が凝ってて答え甲斐があった。また回答後にただCSSもめちゃくちゃ書き込んでてすごい！
 "
       ></textarea>
       <div class="block-ttl2">改善点</div>
