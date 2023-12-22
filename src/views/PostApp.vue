@@ -98,25 +98,24 @@ export default {
   height: 20px;
   padding: 10px;
   line-height: 1.3rem;
-  border-radius: 3px;
-  border: none;
-  resize: none;
-  border: 2px solid #6c6963;
+  background-color: #f7f2ec;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 2rem;
 }
 .form__textarea2 {
   width: 90%;
   height: 20px;
   padding: 10px;
   line-height: 1.3rem;
-  border-radius: 3px;
-  border: none;
-  resize: none;
-  border: 2px solid #6c6963;
+  background-color: #f7f2ec;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 2rem;
 }
 .form__textarea3 {
   width: 90%;
   height: 5em;
-  border: none;
   background-color: #f7f2ec;
   border-radius: 10px;
   padding: 10px;
